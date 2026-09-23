@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "name": "Professor Exemplo",
+      "email": "prof@teste.com",
+      "password": "123",
+      "role": "professor"
+    },
+    {
+      "name": "Aluno Exemplo",
+      "email": "aluno@teste.com",
+      "password": "123",
+      "role": "aluno"
+    }
+  ],
+  "students": [
+    {
+      "name": "Aluno Exemplo",
+      "email": "aluno@teste.com",
+      "final_grade": "8.5"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "page": "professor-grades",
+  "title": "Notas do Professor",
+  "type": "frontend",
+  "description": "Arquivo JSON com metadata do fluxo de notas do professor.",
+  "status": "sem-php"
+}

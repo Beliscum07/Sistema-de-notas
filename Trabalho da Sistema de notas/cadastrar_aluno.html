@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Aluno</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth-pages.css">
+</head>
+<body class="auth-body aluno-body">
+    <div class="auth-card">
+        <div class="text-center mb-8">
+            <div class="icon-circle">🎓</div>
+            <h1>Cadastro do Aluno</h1>
+            <p>Crie sua conta para ver sua nota final.</p>
+        </div>
+
+        <form id="formAluno" class="auth-form">
+            <div class="auth-field">
+                <label>Nome completo</label>
+                <input id="name" type="text" name="name" required placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="auth-field">
+                <label>E-mail</label>
+                <input id="email" type="email" name="email" required placeholder="seuemail@exemplo.com">
+            </div>
+
+            <div class="auth-field">
+                <label>Senha</label>
+                <input id="password" type="password" name="password" required placeholder="Crie uma senha segura">
+            </div>
+
+            <button type="submit" class="auth-button aluno">Cadastrar aluno</button>
+        </form>
+
+        <p class="mt-6 text-center">
+            Já tem conta?
+            <a href="Login_Aluno.html">Entrar</a>
+        </p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

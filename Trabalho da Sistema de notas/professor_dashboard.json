@@ -1,0 +1,8 @@
+{
+  "page": "professor-dashboard",
+  "title": "Painel do Professor",
+  "type": "frontend",
+  "description": "Configuração do painel do professor em JSON.",
+  "students": [],
+  "status": "sem-php"
+}

@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Aluno | Consulta de Nota</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth-pages.css">
+    <style>
+        body.aluno-dash-body {
+            background: linear-gradient(135deg, #f8fafc, #ecfdf5);
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #dfe7f3;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .navbar .brand-icon {
+            background: #d1fae5;
+            padding: 8px 12px;
+            border-radius: 12px;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 10px;
+            padding: 0.7rem 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .btn-primary:hover {
+            background: #a7f3d0;
+        }
+
+        .btn-danger {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+        }
+
+        .btn-danger:hover {
+            background: #fca5a5;
+            color: #7f1d1d;
+        }
+
+        .btn-logout {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .btn-logout:hover {
+            background: #fca5a5;
+            color: #7f1d1d;
+        }
+
+        .dash-container {
+            max-width: 550px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card-nota {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #dfe7f3;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .student-avatar {
+            width: 70px;
+            height: 70px;
+            background: #d1fae5;
+            color: #059669;
+            font-size: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+
+        .student-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin: 0 0 0.25rem;
+        }
+
+        .student-email {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin: 0 0 2rem;
+        }
+
+        .nota-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .nota-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #64748b;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .nota-val {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #2563eb;
+            line-height: 1;
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 0.6rem 1.4rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .badge-aprovado {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .badge-reprovado {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .badge-pendente {
+            background: #fef3c7;
+            color: #d97706;
+        }
+    </style>
+</head>
+<body class="aluno-dash-body">
+
+    <nav class="navbar">
+        <div class="brand">
+            <span class="brand-icon">🎓</span>
+            <span>Painel do Aluno</span>
+        </div>
+
+        <div class="actions">
+            <a href="telaInicial.html" class="btn btn-primary">Início</a>
+            <button id="btnLogout" class="btn btn-danger">Sair</button>
+        </div>
+    </nav>
+
+    <main class="dash-container">
+        <div class="card-nota">
+            <div class="student-avatar">🎓</div>
+            <h1 class="student-name" id="studentName">Carregando...</h1>
+            <p class="student-email" id="studentEmail">...</p>
+
+            <div class="nota-box">
+                <div class="nota-label">Sua Nota Final</div>
+                <div class="nota-val" id="studentGrade">--</div>
+            </div>
+
+            <div id="statusBadge" class="badge-status badge-pendente">
+                Buscando informações...
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rawSession = sessionStorage.getItem('usuarioLogado') || sessionStorage.getItem('usuario_atual');
+
+            if (!rawSession) {
+                alert('Nenhuma sessão ativa. Faça o login para acessar.');
+                window.location.href = 'Login_Aluno.html';
+                return;
+            }
+
+            let usuario;
+            try {
+                usuario = JSON.parse(rawSession);
+            } catch (e) {
+                sessionStorage.removeItem('usuarioLogado');
+                sessionStorage.removeItem('usuario_atual');
+                window.location.href = 'Login_Aluno.html';
+                return;
+            }
+
+            const nomeUsuario = usuario.nome || usuario.name || 'Aluno';
+
+            if (!usuario || usuario.role !== 'aluno') {
+                alert('Acesso negado! Esta área é exclusiva para alunos.');
+                window.location.href = 'Login_Aluno.html';
+                return;
+            }
+
+            document.getElementById('studentName').textContent = nomeUsuario;
+            document.getElementById('studentEmail').textContent = usuario.email || 'Não informado';
+
+            const storageKey = 'sistema_notas_local';
+            const dbData = localStorage.getItem(storageKey);
+            let notaEncontrada = null;
+
+            if (dbData) {
+                try {
+                    const db = JSON.parse(dbData);
+                    const listaEstudantes = db.students || [];
+
+                    const registro = listaEstudantes.find((s) => {
+                        const mesmoEmail = s.email && usuario.email && s.email.toLowerCase() === usuario.email.toLowerCase();
+                        const mesmoNome = (s.name && nomeUsuario && s.name.toLowerCase() === nomeUsuario.toLowerCase()) ||
+                            (s.nome && nomeUsuario && s.nome.toLowerCase() === nomeUsuario.toLowerCase());
+                        return mesmoEmail || mesmoNome;
+                    });
+
+                    if (registro) {
+                        const valor = registro.final_grade ?? registro.notaFinal ?? registro.grade;
+                        if (valor !== undefined && valor !== null && valor !== '') {
+                            notaEncontrada = parseFloat(valor);
+                        }
+                    }
+                } catch (err) {
+                    console.error('Erro ao ler banco de dados do localStorage:', err);
+                }
+            }
+
+            const gradeEl = document.getElementById('studentGrade');
+            const badgeEl = document.getElementById('statusBadge');
+
+            if (notaEncontrada !== null && !isNaN(notaEncontrada)) {
+                gradeEl.textContent = notaEncontrada.toFixed(1);
+
+                if (notaEncontrada >= 6.0) {
+                    badgeEl.textContent = 'Aprovado(a)';
+                    badgeEl.className = 'badge-status badge-aprovado';
+                } else {
+                    badgeEl.textContent = 'Reprovado(a)';
+                    badgeEl.className = 'badge-status badge-reprovado';
+                }
+            } else {
+                gradeEl.textContent = 'N/A';
+                badgeEl.textContent = 'Nota ainda não cadastrada pelo professor';
+                badgeEl.className = 'badge-status badge-pendente';
+            }
+
+            document.getElementById('btnLogout').addEventListener('click', () => {
+                sessionStorage.removeItem('usuarioLogado');
+                sessionStorage.removeItem('usuario_atual');
+                window.location.href = 'telaInicial.html';
+            });
+        });
+    </script>
+</body>
+</html>

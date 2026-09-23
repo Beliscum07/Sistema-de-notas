@@ -1,0 +1,10 @@
+{
+  "database": "localStorage",
+  "storageKey": "sistema_notas_local",
+  "tables": [
+    "users",
+    "students"
+  ],
+  "description": "Estrutura do armazenamento em JSON do sistema de notas.",
+  "status": "sem-php"
+}

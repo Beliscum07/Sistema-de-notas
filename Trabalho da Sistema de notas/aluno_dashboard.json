@@ -1,0 +1,8 @@
+{
+  "page": "aluno-dashboard",
+  "title": "Painel do Aluno",
+  "type": "frontend",
+  "description": "Configuração do painel do aluno em JSON.",
+  "student": null,
+  "status": "sem-php"
+}

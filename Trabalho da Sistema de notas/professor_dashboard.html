@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Professor</title>
+    <link rel="stylesheet" href="professor_dashboard.css">
+</head>
+<body data-page="professor-dashboard">
+    <div class="container">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">NSA</div>
+                <div>
+                    <small>Sistema de notas</small>
+                    <h1>Painel do professor</h1>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="professor_notas.html" class="btn btn-primary">Lançar notas</a>
+                <button class="btn btn-danger" data-logout>Sair</button>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <div class="user-box">
+                    <div class="label">Usuário</div>
+                    <p class="user-name" id="professorNome">Professor</p>
+                    <p class="user-role">Professor</p>
+                </div>
+
+                <nav class="menu">
+                    <a href="telaInicial.html">Início</a>
+                    <a href="professor_notas.html">Lançar notas</a>
+                    <a href="Login_Aluno.html">Área do aluno</a>
+                </nav>
+            </aside>
+
+            <main class="main">
+                <section class="panel">
+                    <h2>Resumo</h2>
+                    <p class="empty">Total de alunos cadastrados: <strong id="totalAlunos">0</strong></p>
+                </section>
+
+                <section class="panel">
+                    <h2>Notas dos alunos</h2>
+                    <div id="alunosLista" class="student-list"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

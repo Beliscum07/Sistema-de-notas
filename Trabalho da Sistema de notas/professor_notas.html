@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançar Notas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="professor_dashboard.css">
+</head>
+<body data-page="professor-notes">
+    <div class="container">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">NSA</div>
+                <div>
+                    <small>Sistema de notas</small>
+                    <h1>Lançar notas</h1>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="professor_dashboard.html" class="btn btn-ghost">Voltar</a>
+                <button class="btn btn-danger" data-logout>Sair</button>
+            </div>
+        </header>
+
+        <main class="main" style="margin-top: 22px;">
+            <section class="panel">
+                <h2>Cadastro da nota final</h2>
+
+                <form id="notesForm" class="form-grid">
+                    <div class="field">
+                        <label for="studentName">Nome do aluno</label>
+                        <input id="studentName" type="text" placeholder="Ex.: Maria da Silva" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="studentEmail">E-mail do aluno</label>
+                        <input id="studentEmail" type="email" placeholder="aluno@exemplo.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="studentGrade">Nota final</label>
+                        <input id="studentGrade" type="text" placeholder="Ex.: 8.5" required>
+                    </div>
+
+                    <div class="field" style="justify-content: flex-end;">
+                        <button type="submit" class="btn btn-primary" style="height: 48px;">Salvar nota</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Alunos cadastrados</h2>
+                <p id="notesSummary" class="empty">Alunos cadastrados: 0</p>
+                <div id="studentsList" class="student-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sistema | Inicial</title>
+    <style>/* pequena correção inline para garantir box-sizing */html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}</style>
+</head>
+<body class="hero-pattern">
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Sistema de Cadastro e Notas</h1>
+            <p class="lead">Bem-vindo ao sistema — entre como aluno ou professor</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section aria-labelledby="roles-title">
+            <h2 id="roles-title">Escolha seu perfil</h2>
+
+            <ol class="roles-list">
+                <li>
+                    <div class="role-number">1</div>
+                    <div class="role-icon" aria-hidden="true">
+                        <i class="fa fa-book-reader" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="role-title">Aluno</h3>
+                    <p class="role-desc">Acesse suas notas, frequência e materiais.</p>
+                    <a class="role-btn" href="Login_Aluno.html">Entrar como Aluno</a>
+                </li>
+
+                <li>
+                    <div class="role-number">2</div>
+                    <div class="role-icon" aria-hidden="true">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="role-title">Professor</h3>
+                    <p class="role-desc">Gerencie turmas, notas e lançamentos.</p>
+                    <a class="role-btn" href="Login_Professor.html">Entrar como Professor</a>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">&copy; <span id="year"></span> Sistema de Notas — Desenvolvido</div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

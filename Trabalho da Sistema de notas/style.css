@@ -1,0 +1,164 @@
+/* 💎 Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* 🌐 Estilos Globais */
+body {
+    /* Fonte nova e neutra para interface limpa */
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    margin:0;
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+/* 🌟 Padrões de Fundo */
+.hero-pattern {
+    /* Padrão de pontos sutis com cor de ouro (radial-gradient) */
+    background-image: radial-gradient(circle, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+    /* Tamanho do padrão (espaçamento entre os pontos) */
+    background-size: 20px 20px;
+}
+
+/* ✨ Efeito de Hover em Elementos Tipo Joia */
+.jewel-hover {
+    /* Transição suave para todos os efeitos (hover) */
+    transition: all 0.3s ease;
+}
+
+.jewel-hover:hover {
+    /* Eleva o elemento e o expande ligeiramente */
+    transform: translateY(-5px) scale(1.02);
+    /* Adiciona uma sombra sutil ao pairar */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 💎 Efeito de Brilho de Diamante */
+.diamond-sparkle {
+    /* Necessário para posicionar o pseudo-elemento ::after corretamente */
+    position: relative;
+    /* Garante que o brilho não exceda os limites do elemento */
+    overflow: hidden;
+}
+
+.diamond-sparkle::after {
+    /* Cria o elemento que simulará o brilho */
+    content: '';
+    position: absolute;
+    /* Inicialmente posicionado fora da vista */
+    top: -50%;
+    left: -50%;
+    /* Garante que o gradiente cubra todo o elemento */
+    width: 200%;
+    height: 200%;
+    /* Gradiente linear branco (o "brilho") */
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 45%,      /* Transparente antes */
+        rgba(255, 255, 255, 0.8) 50%,    /* Pico de brilho */
+        rgba(255, 255, 255, 0) 55%       /* Transparente depois */
+    );
+    /* Rotação para criar o efeito de faixa diagonal */
+    transform: rotate(30deg);
+    /* Aplica a animação de brilho */
+    animation: shine 3s infinite;
+}
+
+/* 🔑 Keyframes para a Animação de Brilho */
+@keyframes shine {
+    /* Início da animação: o brilho está fora, superior-esquerdo */
+    0% {
+        left: -50%;
+        top: -50%;
+    }
+    /* Fim da animação: o brilho se move para fora, inferior-direito */
+    100% {
+        left: 150%;
+        top: 150%;
+    }
+}
+
+/* =========================
+   Estilos para telaInicial
+   ========================= */
+:root{
+    --primary:#2563eb; /* azul */
+    --accent:#f59e0b;  /* dourado para detalhes */
+    --card-bg:#ffffff;
+    --muted:#6b7280;
+}
+
+.container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:1rem 1.25rem;
+}
+
+.site-header{
+    padding:2.25rem 0 1rem;
+    text-align:center;
+}
+.brand{
+    font-family: 'Playfair Display', serif;
+    font-size:1.6rem;
+    margin:0;
+}
+.lead{color:var(--muted);margin-top:0.25rem}
+
+.roles-list{
+    list-style: none;
+    padding:0;
+    margin:1.25rem 0 3rem;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap:1rem;
+}
+
+.roles-list li{
+    background:var(--card-bg);
+    border-radius:12px;
+    padding:1.25rem;
+    box-shadow:0 8px 20px rgba(31,41,55,0.06);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+    text-align:center;
+}
+
+.role-number{
+    background:var(--primary);
+    color:#fff;
+    width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;font-weight:700;font-size:1rem;
+}
+.role-icon{font-size:2rem}
+.role-title{margin:0;font-size:1.05rem;font-weight:600}
+.role-desc{color:var(--muted);font-size:0.95rem;margin:0}
+
+.role-btn{
+    margin-top:8px;
+    display:inline-block;
+    padding:10px 14px;
+    background:var(--primary);
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.site-footer{
+    padding:1rem 0;border-top:1px solid rgba(15,23,42,0.04);text-align:center;color:var(--muted);
+}
+
+/* classes de ícone solicitadas pelo usuário */
+.fafafa, .fafaf{
+    display:inline-block;width:44px;height:44px;border-radius:8px;background:var(--primary);color:#fff;vertical-align:middle;text-align:center;line-height:44px;font-weight:600;
+}
+.fafafa::after{content:'A';}
+.fafaf::after{content:'S';}
+
+/* Responsividade fina */
+@media (max-width:520px){
+    .brand{font-size:1.25rem}
+    .role-icon{font-size:1.9rem}
+}

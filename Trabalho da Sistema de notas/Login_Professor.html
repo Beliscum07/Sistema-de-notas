@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Professor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth-pages.css">
+</head>
+<body class="auth-body professor-body">
+    <div class="auth-card">
+        <div class="text-center mb-10">
+            <div class="brand-mark">NSA</div>
+            <h1>Acessar Conta - Professor</h1>
+            <p>Insira suas credenciais para continuar.</p>
+        </div>
+
+        <form id="loginProfessorForm" class="auth-form">
+            <div class="auth-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+            </div>
+
+            <div class="auth-field">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required placeholder="Sua senha secreta">
+            </div>
+
+            <button type="submit" class="auth-button professor">Entrar</button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <a href="cadastrar.html">Não tem conta? Cadastre-se</a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

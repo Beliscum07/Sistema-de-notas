@@ -1,0 +1,7 @@
+{
+  "page": "register",
+  "type": "frontend",
+  "description": "Arquivo de configuração do fluxo de cadastro em JSON.",
+  "roles": ["aluno", "professor"],
+  "status": "sem-php"
+}

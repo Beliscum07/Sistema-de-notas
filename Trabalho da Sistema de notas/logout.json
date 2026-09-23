@@ -1,0 +1,7 @@
+{
+  "action": "logout",
+  "type": "frontend",
+  "session": "sessionStorage",
+  "redirect": "telaInicial.html",
+  "status": "sem-php"
+}
